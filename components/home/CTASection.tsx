@@ -55,7 +55,7 @@ export function CTASection() {
             <Link href="#trial-signup">
               <Button size="lg" className="px-16 py-6 text-lg font-bold">
                 <Lock className="w-5 h-5 mr-2" />
-                JOIN EARLY ACCESS
+                JOIN EARLY ACCESS!
               </Button>
             </Link>
 
