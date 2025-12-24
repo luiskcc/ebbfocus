@@ -14,24 +14,24 @@ interface Feature {
 }
 
 const features: Feature[] = [
-  {
-    name: "Track Time",
-    description: "Like screen time on steroids",
-    className: "md:col-span-1 md:row-span-3", // Bottom-left (rows 1-3 / span 2)
-    backgroundComponent: <TrackTimeBackground />,
-  },
+  // {
+  //   name: "Track Time",
+  //   description: "Like screen time on steroids",
+  //   className: "md:col-span-1 md:row-span-3", // Bottom-left (rows 1-3 / span 2)
+  //   backgroundComponent: <TrackTimeBackground />,
+  // },
   {
     name: "Block Apps/Websites",
     description: "Block distractions to stay in the zone",
-    className: "md:col-span-2 md:row-span-2", // Bottom-wide (rows 1-2 / span 1)
+    className: "md:col-span-2 md:row-span-1", // Bottom-wide (rows 1-2 / span 1)
     backgroundComponent: <BlockAppBackground />,
   },
-  {
-    name: "Build your perfect workflow",
-    description: "Seamlessly connect Spotify and Slack",
-    className: "md:col-span-1 md:row-span-2", // Top-right (rows 4-6 / span 2)
-    backgroundComponent: <MusicIntegrationBeam className="absolute top-0 left-10 bottom-10 right-0 h-2/3 w-full px-10 pt-15" />,
-  },
+  // {
+  //   name: "Build your perfect workflow",
+  //   description: "Seamlessly connect Spotify and Slack",
+  //   className: "md:col-span-1 md:row-span-2", // Top-right (rows 4-6 / span 2)
+  //   backgroundComponent: <MusicIntegrationBeam className="absolute top-0 left-10 bottom-10 right-0 h-2/3 w-full px-10 pt-15" />,
+  // },
   {
     name: "Private, Secure & Lightweight",
     description: "Local first, open source, and built for performance.",
@@ -45,18 +45,24 @@ const features: Feature[] = [
     backgroundComponent: <FocusProfilesBackground />,
   },
   {
-    name: "Compete with Friends",
-    description: "Stay motivated with friends",
-    className: "md:col-span-1 md:row-span-2", // Mid-right (rows 3-4 / span 1)
+    name: "Global Community",
+    description: "Stay motivated with online community",
+    className: "md:col-span-1 md:row-span-3", // Middle tall (rows 2-6 / span 4)
     backgroundComponent: <FriendsGlobeBackground />,
-  },
+  }
+  // {
+  //   name: "Compete with Friends",
+  //   description: "Stay motivated with friends",
+  //   className: "md:col-span-1 md:row-span-2", // Mid-right (rows 3-4 / span 1)
+  //   backgroundComponent: <FriendsGlobeBackground />,
+  // },
 ];
 
 export function FeaturesSection() {
   return (
     <section id="features" className="w-full pt-10 md:pt-16 pb-20 md:pb-32 px-4 md:px-6">
       <div className="container mx-auto max-w-[1140px]">
-        <BentoGrid className="max-w-5xl mx-auto grid-cols-1 md:grid-cols-3 md:grid-rows-[repeat(6,7rem)] auto-rows-auto gap-4">
+        <BentoGrid className="max-w-5xl mx-auto grid-cols-1 md:grid-cols-3 md:grid-rows-[repeat(3,10rem)] auto-rows-auto gap-4">
           {features.map((feature) => (
             <BentoCard key={feature.name} {...feature}>
               <div className="hidden md:block">
