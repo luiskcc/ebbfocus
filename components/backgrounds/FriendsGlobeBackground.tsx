@@ -1,9 +1,10 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { motion } from 'motion/react'
+import { Badge } from '@/components/ui/badge'
 
 type Status = 'In focus' | 'Online' | 'Offline'
 
@@ -42,8 +43,27 @@ const statusStyles: Record<Status, string> = {
 }
 
 export function FriendsGlobeBackground() {
+  const onlineCount = useMemo(() => avatars.filter(a => a.status === 'Online').length, [])
+  const inFocusCount = useMemo(() => avatars.filter(a => a.status === 'In focus').length, [])
+
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center p-4 overflow-hidden select-none">
+    <div className="absolute inset-0 flex flex-col items-center justify-start pt-8 p-4 overflow-hidden select-none">
+      {/* Status Badges */}
+      <div className="flex items-center gap-2 mb-4">
+        <Badge variant="outline" className="gap-1.5 border-green-500/30 bg-green-500/10">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          <span className="text-xs font-medium">{onlineCount} Online</span>
+        </Badge>
+        <Badge variant="outline" className="gap-1.5 border-violet-500/30 bg-violet-500/10">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-pulse inline-flex rounded-full h-2 w-2 bg-violet-500"></span>
+          </span>
+          <span className="text-xs font-medium">{inFocusCount} In Focus</span>
+        </Badge>
+      </div>
 
       <div className="relative flex-shrink-0 w-40 h-40 md:w-48 md:h-48">
          <div 

@@ -118,7 +118,7 @@ export function TestimonialsSection() {
       <div className="container px-4 md:px-6 max-w-[1140px] mx-auto">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">1 star reviews</h2>
+            <h2 className="text-4xl font-bold tracking-tighter">1 star reviews</h2>
             <p className="max-w-[800px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Trusted by founders and creatives who love creating slop.
             </p>

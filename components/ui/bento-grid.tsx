@@ -14,7 +14,10 @@ interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
   className: string;
   description: string;
   children?: ReactNode;
-  backgroundComponent?: ReactNode;
+  background?: ReactNode;
+  Icon?: any;
+  href?: string;
+  cta?: string;
 }
 
 const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
@@ -36,27 +39,42 @@ const BentoCard = ({
   className,
   description,
   children,
-  backgroundComponent,
+  background,
+  Icon,
+  href,
+  cta,
   ...props
 }: BentoCardProps) => (
   <div
-    key={name}
     className={cn(
-      "group relative flex flex-col justify-end overflow-hidden rounded-xl h-full",
+      "group relative flex flex-col justify-end overflow-hidden rounded-xl h-full min-h-[300px]",
       "border bg-card/20 shadow-sm",
       className,
     )}
     {...props}
   >
-    {children}
-    <div className="z-10 m-2 rounded-lg bg-[--background]/75 p-4 backdrop-blur-lg">
+    {/* Background */}
+    {background}
+
+    {/* Content */}
+    <div className="relative z-10 m-2 rounded-lg bg-background/90 p-4 backdrop-blur-lg border border-border/50">
       <div className="pointer-events-none flex transform-gpu flex-col gap-1 transition-all duration-300">
+        {Icon && (
+          <div className="mb-2">
+            <Icon className="w-6 h-6 text-primary" />
+          </div>
+        )}
         <h2 className="text-xl font-semibold text-card-foreground">
           {name}
         </h2>
-        <p className="max-w-lg text-muted-foreground">{description}</p>
+        <p className="max-w-lg text-sm text-muted-foreground">{description}</p>
+        {cta && (
+          <p className="text-xs text-primary/80 mt-2">{cta}</p>
+        )}
       </div>
     </div>
+
+    {children}
   </div>
 );
 
