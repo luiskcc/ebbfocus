@@ -45,14 +45,14 @@ const BentoCard = ({
   cta,
   ...props
 }: BentoCardProps) => (
-  <div
-    className={cn(
-      "group relative flex flex-col justify-end overflow-hidden rounded-xl h-full min-h-[300px]",
-      "border bg-card/20 shadow-sm",
-      className,
-    )}
-    {...props}
-  >
+    <div
+      className={cn(
+        "group relative flex flex-col justify-end overflow-hidden rounded-xl h-full min-h-[200px]",
+        "border bg-card/20 shadow-sm isolate",
+        className,
+      )}
+      {...props}
+    >
     {/* Background */}
     {background}
 
